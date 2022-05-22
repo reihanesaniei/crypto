@@ -120,6 +120,7 @@ return [
     'uploaded' => 'آپلود گزینه :attribute شکست خورد',
     'url' => 'فرمت :attribute اشتباه است',
     'uuid' => 'گزینه :attribute باید یک UUID صحیح باشد',
+    'Your comment send successfully'=>'نظر شما با موفقیت ثبت شد',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,5 +189,8 @@ return [
         'price' => 'قیمت',
         'pic' => 'تصویر',
         'link' => 'لینک',
+        'Your comment send successfully'=>'نظر شما با موفقیت ثبت شد',
+
     ],
+
 ];

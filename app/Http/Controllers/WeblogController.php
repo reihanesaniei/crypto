@@ -11,20 +11,23 @@ use Hekmatinasser\Verta\Verta;
 class WeblogController extends Controller
 {
     //
-    public function index(){
+    public function index(Weblog $weblog){
 
-        $weblog = Weblog::IndexWeblog();
+        $weblog = $weblog->latest()->paginate(5);
+
         return view('weblog',compact('weblog'));
     }
     public function send(){
 
-       Weblog::CreateWeblog();
+        Weblog::CreateWeblog();
+
         return redirect('/weblog');
 
     }
     public function detailWeblog($id,$weblogslug){
         $weblog  = Weblog::DetailWeblog($id,$weblogslug);
-        return view('weblogdetail',compact('weblog'));
+        $message = '';
+        return view('weblogdetail',compact('weblog','message'));
     }
     public function delete($id){
         $w = Weblog::destroy($id);

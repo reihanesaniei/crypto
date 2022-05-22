@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class Weblog extends Model
 {
     use HasFactory;
     protected $fillable =[
+        'user_id',
         'title',
         'author',
         'email',
@@ -19,8 +21,7 @@ class Weblog extends Model
         'content'
     ];
     public function scopeIndexWeblog($query){
-
-        return $query->latest()->take(20)->get();
+        return $query->latest()->take(2)->get();
     }
 
     public function scopeCreateWeblog(){
@@ -40,27 +41,19 @@ class Weblog extends Model
             'The email must be a valid email address.'=>'فرمت ایمیل را رعایت نکرده اید'
 
         ]);
-
-
-
         $input = $request->all();
-
         if ($image = $request->file('img')) {
-
             $destinationPath = 'image/';
-
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-
             $image->move($destinationPath, $profileImage);
-
             $input['img'] = "$profileImage";
-
         }
+
+        $input['user_id'] =\auth()->user()->getAuthIdentifier();
         $input['slug'] =Str::slug(request('title'));
+         Weblog::create($input);
 
-       Weblog::create($input);
         return redirect()->route('weblog.index')
-
             ->with('success','Product created successfully.');
        /*
 
@@ -76,7 +69,9 @@ class Weblog extends Model
     }
     public function scopeDetailWeblog($query,$id,$slug){
         return $query->find($id);
-
     }
 
+    public function comments(){
+      return $this->hasMany(Comment::class);
+    }
 }

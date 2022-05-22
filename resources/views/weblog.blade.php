@@ -27,6 +27,9 @@
                </div>
            @endforeach
            <div class="row">
+               {!! $weblog->render() !!}
+           </div>
+           <div class="row">
                <article>
                    <div class="col-xs-12 form-group form-weblog-parent">
                        <div class="col-xs-12 title-weblog-post h5">
@@ -43,9 +46,11 @@
                                    </ul>
                                </div>
                            @endif
+
                        </div>
                        <div class="col-xs-12 form-weblog">
-                           <form method="post" action="{{route('weblog.send')}}" enctype="multipart/form-data">
+                           @if(\Illuminate\Support\Facades\Auth::check())
+                                 <form method="post" action="{{route('weblog.send')}}" enctype="multipart/form-data">
                                {!! csrf_field() !!}
                                <div class="row form-parent">
                                    <div class="col-xs-12 form-group">
@@ -77,6 +82,9 @@
                                    </div>
                                </div>
                            </form>
+                           @else
+                                <div class="col-xs-12 alert alert-warning"> برای اضافه کردن مقاله نیاز به عضویت در سایت می باشد.</div>
+                           @endif
                        </div>
                    </div>
                </article>

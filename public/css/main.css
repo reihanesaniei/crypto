@@ -1534,6 +1534,11 @@ section {
     font-family: "IRANSansm", sans-serif;
     color: #000;
 }
+.pagination{
+    direction: ltr;
+    margin-bottom: 50px;
+    text-align: center;
+}
 .hr{
     height:2px;
     border-width:0;
