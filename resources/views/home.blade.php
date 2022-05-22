@@ -24,11 +24,7 @@
         </div>--}}
         <div class="container content-main">
             <div class="row">
-            {{--    <?php
-               echo "<pre>"; print_r($contentMain['priceList']);echo "</pre>";
-                ?>--}}
-
-                <div class="col-xs-12 col-sm-6 news-price">
+                        <div class="col-xs-12 col-sm-6 news-price">
                     @foreach($contentMain['newsprice'] as $w)
                         <div class="row">
                             <article>
