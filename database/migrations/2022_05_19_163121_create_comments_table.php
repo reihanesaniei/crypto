@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->integer('weblog_id')->unsigned();
+            $table->boolean('confirm');
             $table->longText('content');
 /*
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

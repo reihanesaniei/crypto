@@ -9,8 +9,14 @@ class PricelistController extends Controller
 {
 
     public function index(){
-        $pricelist = Pricelist::IndexPricelist();
-        Pricelist::StorePricelist();
+        try {
+            $pricelist = Pricelist::IndexPricelist();
+            Pricelist::StorePricelist();
+
+        } catch(\Illuminate\Http\Client\ConnectionException $e)
+        {
+            $pricelist = array();
+        }
         return view('pricelist',compact('pricelist'));
     }
 

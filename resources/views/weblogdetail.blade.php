@@ -21,6 +21,33 @@
                    </div>
                </article>
            </div>
+
+           @if(count($listComments)>0)
+           <div class="row">
+               <article>
+                   <div class="card comment-parent">
+                       <div class="col-xs-12 title-weblog-post h5">
+                          <i class="fa fa-comments-o"></i> نظرات کاربران
+                       </div>
+                       @foreach($listComments as $list)
+                           <div class="card-footer text-muted">
+                               <div class="fr-name">
+                                   {{$list->user_name}}
+                               </div>
+                               <div class="fl-date">
+                                   {{jdate($list->created_at)->format('%d %B %Y')}}
+                               </div>
+                               <h5 class="card-title">
+                                   <i class="fa fa-commenting"></i>
+                                   {{$list->content}}
+                               </h5>
+                           </div>
+
+                       @endforeach
+                   </div>
+               </article>
+           </div>
+           @endif
            <div class="row">
                <article>
                    <div class="col-xs-12 form-group form-weblog-parent">

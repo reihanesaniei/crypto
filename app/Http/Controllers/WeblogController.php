@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Weblog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Hekmatinasser\Verta\Verta;
+use Morilog\Jalali\Jalalian;
 
 
 class WeblogController extends Controller
@@ -26,8 +28,10 @@ class WeblogController extends Controller
     }
     public function detailWeblog($id,$weblogslug){
         $weblog  = Weblog::DetailWeblog($id,$weblogslug);
+        $listComments =Comment::CommentList($id);
+
         $message = '';
-        return view('weblogdetail',compact('weblog','message'));
+        return view('weblogdetail',compact('weblog','listComments','message'));
     }
     public function delete($id){
         $w = Weblog::destroy($id);

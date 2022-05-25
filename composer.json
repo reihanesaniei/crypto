@@ -15,6 +15,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "morilog/jalali": "3.*",
+        "pishran/laravel-persian-slug": "^2.2",
         "spatie/laravel-short-schedule": "^1.5",
         "ybazli/faker": "^1.0"
     },

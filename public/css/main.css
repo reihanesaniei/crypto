@@ -47,8 +47,8 @@ main{
     background: #f3f4f6;
 }
 .card{
-    margin-top:50px!important;
-    margin-bottom: 50px!important;
+    margin-top:10px!important;
+    margin-bottom: 10px!important;
 }
 .dir-login{
     direction: rtl!important;
@@ -1509,6 +1509,13 @@ section {
     width: 100%;
     margin-bottom: 15px;
 }
+.comment-parent{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.comment-parent .title-weblog-post {
+    padding: 15px;
+}
 .weblog-img{
     float: right;
     margin: 4px 0 4px 15px;
@@ -1519,6 +1526,18 @@ section {
     padding: 15px;
     width: 100%;
     height: auto;
+}
+.fr-name{
+    float:right;
+    width: 50%;
+    text-align: right;
+    margin-bottom: 15px;
+}
+.fl-date{
+    float:left;
+    width: 50%;
+    text-align: left;
+    margin-bottom: 15px;
 }
 .form-weblog-parent{
     border: 1px solid #ddd;

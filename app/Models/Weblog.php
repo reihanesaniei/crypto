@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Pishran\LaravelPersianSlug\HasPersianSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Weblog extends Model
 {
     use HasFactory;
+    use HasPersianSlug;
+
     protected $fillable =[
         'user_id',
         'title',
@@ -20,6 +22,7 @@ class Weblog extends Model
         'img',
         'content'
     ];
+
     public function scopeIndexWeblog($query){
         return $query->latest()->take(2)->get();
     }
@@ -50,7 +53,7 @@ class Weblog extends Model
         }
 
         $input['user_id'] =\auth()->user()->getAuthIdentifier();
-        $input['slug'] =Str::slug(request('title'));
+        $input['slug'] =str_slug_persian(request('title'));
          Weblog::create($input);
 
         return redirect()->route('weblog.index')

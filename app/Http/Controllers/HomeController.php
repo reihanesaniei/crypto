@@ -26,7 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $pricelist = Pricelist::IndexPricelist();
+        try {
+             $pricelist = Pricelist::IndexPricelist();
+        } catch(\Illuminate\Http\Client\ConnectionException $e)
+        {
+            $pricelist = array();
+        }
         $newsprice = Weblog::IndexWeblog();
         $contentMain  = [
             'priceList'=>$pricelist,

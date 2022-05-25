@@ -51,38 +51,40 @@
                     @endforeach
                 </div>
                 <div class="col-xs-12 col-sm-6 rate-price">
-
-                    <table class="table table-striped table-price-dir">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">شماره</th>
-                            <th scope="col">نام ارز</th>
-                            <th scope="col">قیمت اکنون(دلار)</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $counter = 1;
-                        ?>
-                        @foreach($contentMain['priceList'] as $price)
+                    @if(count($contentMain['priceList'])>0)
+                        <table class="table table-striped table-price-dir">
+                            <thead class="thead-dark">
                             <tr>
-                                <th scope="row"><?php echo $counter++; ?></th>
-                                <td>
-                                    <img src="{{$price["image"]}}" width="25" height="25">
-                                    <span>
-                                    {{$price["name"]}}
-                                </span>
-                                    <span class="symbol-price">
-                                    {{$price["symbol"]}}
-                                </span>
-
-                                </td>
-
-                                <td>{{$price["current_price"]}}</td>
+                                <th scope="col">شماره</th>
+                                <th scope="col">نام ارز</th>
+                                <th scope="col">قیمت اکنون(دلار)</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <?php $counter = 1;
+                            ?>
+                              @foreach($contentMain['priceList'] as $price)
+                                <tr>
+                                    <th scope="row"><?php echo $counter++; ?></th>
+                                    <td>
+                                        <img src="{{$price["image"]}}" width="25" height="25">
+                                        <span>
+                                        {{$price["name"]}}
+                                    </span>
+                                        <span class="symbol-price">
+                                        {{$price["symbol"]}}
+                                    </span>
 
+                                    </td>
+
+                                    <td>{{$price["current_price"]}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <div class="col-xs-12 alert alert-danger">اینترنت قطع می باشد قادر به نمایش لیست قیمتها نمی باشیم.</div>
+                    @endif
                 </div>
             </div>
         </div>

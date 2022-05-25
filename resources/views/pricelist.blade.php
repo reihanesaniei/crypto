@@ -5,7 +5,8 @@
 
         <div class="container">
             <div class="row">
-                <table class="table table-striped table-price-dir">
+                @if(count($pricelist)>0)
+                    <table class="table table-striped table-price-dir">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">شماره</th>
@@ -39,7 +40,9 @@
                     @endforeach
                     </tbody>
                 </table>
-
+                @else
+                    <div class="col-xs-12 alert alert-danger">اینترنت قطع می باشد قادر به نمایش لیست قیمتها نمی باشیم.</div>
+                @endif
             </div>
         </div>
     </main><!-- End #main -->

@@ -118,6 +118,11 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-short-schedule" />
       <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
       <path value="$PROJECT_DIR$/vendor/ybazli/faker" />
+      <path value="$PROJECT_DIR$/vendor/beberlei/assert" />
+      <path value="$PROJECT_DIR$/vendor/morilog/jalali" />
+      <path value="$PROJECT_DIR$/vendor/pishran/laravel-persian-slug" />
+      <path value="$PROJECT_DIR$/vendor/pishran/persian-slug" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
     </include_path>
   </component>
   <component name="PhpUnit">
